@@ -45,9 +45,9 @@ Cokes Execution Template に従って蒸留パイプラインを実行する。
 
 ## ■ 対象
 
-- LOG_PATH: {LOG_PATH}
-- DATASET: {DATASET_NAME}
-- RUN_ID: {NN}
+- LOG_PATH: 実行時に対話で収集（下記「パラメータ収集」参照）
+- DATASET: 実行時に対話で収集（下記「パラメータ収集」参照）
+- RUN_ID: Phase0で自動生成
 
 ---
 
@@ -130,6 +130,32 @@ RUN_IDは以下のいずれかから抽出する：
 ---
 
 # ■ Phase0：Preflight（実行前準備）
+
+## ■ パラメータ収集（Phase0冒頭・必須）
+
+spec読込完了後、以下を順番にユーザーへ質問する：
+
+**Step 1: LOG_PATH**
+> 「ログのパスを入力してください（例: docs/chat-archives/tide-logs-01/）」
+
+**Step 2: DATASET_NAME**
+> 「データセット名を入力してください（例: tide-logs-01）」
+
+**Step 3: 確認**
+収集後、以下を表示してユーザー確認を求める：
+
+```
+--- 実行パラメータ確認 ---
+LOG_PATH  : {入力値}
+DATASET   : {入力値}
+-------------------------
+この内容で実行しますか？ [y/n]
+```
+
+- y → やること（必須）チェックリストへ進む
+- n → Step 1 に戻る
+
+---
 
 ## ■ やること（必須）
 
