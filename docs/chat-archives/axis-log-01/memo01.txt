@@ -1,0 +1,133 @@
+Page Document: Approach Axis Framework
+
+Concept Overview
+
+Approach Axis is a structured framework and operational tool for aligning human judgment ranges with AI vector fields.Its core principle is to treat “approach” as a dynamic action—allowing success and failure to be explicitly defined, enabling reproducible decision processes.
+
+Goals & Objectives
+
+Human-centered alignment: Keep human judgment as the baseline while gradually guiding AI outputs.
+
+Handle ambiguity: Manage uncertain overlaps (“did it touch or not?”) by visualizing shared ranges.
+
+Failure detection: Treat hallucinations and misalignments as Approach Failures, with clear recovery paths.
+
+Operational handoff: Record decisions, rationale, and adjustment history for downstream use.
+
+Balance with Cokes principles: Ensure quality, human oversight, and cost efficiency.
+
+Key Features
+
+Structural Layers
+
+Layer 1 — Axis WordsLinguistic tools to direct AI (Intent, Abstraction, Boundary, Priority, Direction, Sequence).
+
+Layer 2 — Magnet MapPrioritization of influence strength (Direction strongest → Sequence auxiliary).
+
+Layer 3 — Model ProfileDifferences in responsiveness across models (Claude, GPT, Gemini, Copilot).
+
+Layer 4 — TemplatesReady-made command sequences for stable execution.
+
+Operational Primitives
+
+Position: Adjust relative offset of AI output.
+
+Magnitude: Weight confidence or intensity.
+
+Constraint: Apply non-negotiable rules.
+
+Filter: Restrict outputs (e.g., factual only).
+
+Blend: Mix multiple outputs with ratios.
+
+Retry: Define re-approach strategies.
+
+Lock: Fix agreed domains to prevent drift.
+
+State Model
+
+Idle → Plan → Execute → Evaluate → Success / Partial / Failure
+
+Partial → retry; Failure → stop, analyze, reinforce constraints.
+
+User Stories
+
+As a reviewer, I want to detect hallucinations as Approach Failures, so I can stop and reconfigure.
+
+As a project lead, I want to record each adjustment and rationale, so handoffs are transparent.
+
+As a practitioner, I want templates and command vocabularies, so I can quickly apply consistent approaches across models.
+
+As a trainer, I want to demonstrate failure modes and retries, so teams learn resilient usage.
+
+Supporting Documents
+
+docs/axis-words.md: Vocabulary categories and usage principles.
+
+docs/magnet-map.md: Influence strength hierarchy.
+
+docs/model-profile.md: Model-specific magnet profiles.
+
+docs/templates.md: General and model-specific templates.
+
+These layers integrate with operational primitives to form a complete toolkit.
+
+Evaluation & Metrics
+
+Quality Score (0–100): Automated + human review.
+
+Confidence (0–1): Model’s internal certainty.
+
+Outcome Labels: Success / Partial Success / Approach Failure.
+
+Thresholds: Success ≥90 + human pass; Partial 70–89; Failure <70 or hallucination.
+
+Logging: Commands, ranges, profiles, results, timestamps, responsible party.
+
+Example Workflow
+
+Define human axis range (e.g., factual, no subjectivity).
+
+Plan small approach: applyFilter(factualOnly), setPosition(+0.1).
+
+Execute → AI output.
+
+Evaluate → Score 85, partial success.
+
+Retry with tightened constraints.
+
+Re-evaluate → Score 92, success.
+
+Lock axis and handoff.
+
+Open Questions
+
+How should UI panels represent primitives (Position, Magnitude, etc.) for non-technical users?
+
+What training materials best convey failure detection and retry strategies?
+
+How to calibrate thresholds across different AI models consistently?
+
+Future Considerations
+
+Full specification document: Consolidated with index and references.
+
+UI design: Operational panel mockups for direct manipulation.
+
+Workshop scenarios: Hands-on exercises for teams.
+
+Model parameter tables: Quantitative profiles for fine-tuning.
+
+Action Items
+
+Draft Approach Axis full specification integrating all layers.
+
+Design UI prototype for operational primitives.
+
+Prepare training scenarios with success/failure cases.
+
+Develop model-specific parameter sheets.
+
+Summary
+
+Approach Axis operationalizes the act of “approaching” as a controllable, evaluable process.It integrates linguistic axis vocabularies, influence maps, model profiles, and templates into a coherent framework.By defining both success and failure, it enables resilient, human-centered collaboration with AI systems.
