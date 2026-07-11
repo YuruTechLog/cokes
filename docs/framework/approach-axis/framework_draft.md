@@ -58,7 +58,7 @@
 
 ---
 
-## 第2章: なぜ効くのか — 重力場テンソルモデル
+## 第2章: なぜ効くのか — 地形磁力モデル
 
 **目的:** Approach Axisが機能する理由を「操作のための解釈モデル」として示す。実装の説明モデルではないことを明示する。
 
@@ -69,10 +69,11 @@
   （参照: `axis-log-01/gravity-tensor-model.md` §モデルの基本前提）
 
 - **確立した3要素の表を掲載**
-  多様体（AI内部の意味空間の形）/ 傾斜装置（軸語彙の作用）/ 地形崩壊（ハルシネーション）の3要素表。
+  地形（AI内部の意味空間）/ 磁石・傾斜（軸語彙の作用）/ 地形崩壊（Approach Failure）の3要素表。
   ポイント: 軸語彙は地形を「書き換える」のではなく「傾斜をつける」。
-  傾斜が強すぎる → 地形崩壊（ハルシネーション）。
-  （参照: `axis-log-01/gravity-tensor-model.md` §重力場テンソルモデル（確立した3要素））
+  傾斜が強すぎる → 地形崩壊（Approach Failure）。
+  折り畳み（外圧で意味距離が縮まる現象）= 地形構造自体の変形。傾斜操作とは別。
+  （参照: `axis-log-01/gravity-tensor-model.md` §地形磁力モデル / `glossary.md` §地形折り畳み）
 
 - **「操作のための解釈モデルであり実装の説明モデルではない」の明示**
   AI研究者が扱うメカニズム層（Attention重み・確率分布の変形）とは目的が違う。
@@ -132,7 +133,7 @@
 
 - **Axis三層構造（操作/説明/思想）の掲載**
   操作層（Axis Words・Magnet Map・Templates）: 実務で直接使う層。
-  説明層（重力場テンソルモデル）: なぜ効くかを言語化する層。
+  説明層（地形磁力モデル）: なぜ効くかを言語化する層。
   思想層（Cokesとの接続）: Axisを生む設計思想の層。
   この3層はAxis全体の構造であり、上記4層（L1〜L4）とは別の切り口。
   （参照: `axis-log-02/integrated_knowledge.md` §KN43 Axis三層構造）
@@ -164,15 +165,15 @@
   この順番は「傾向」であり固定ではない。
   （参照: `axis-log-01/axis-words-magnet-map.md` §磁力強度マップ §重要）
 
-- **製造元別磁力特性テーブルを掲載（2026年時点観察）**
+- **製造元別磁力特性テーブルを掲載（2026年時点）**
   製造元の設計思想は世代を跨いで継承。モデル名ではなく製造元単位で参照する。
-  Anthropic（最強軸: 抽象度 / Constitutional AI設計 = 原則重視）
-  OpenAI（最強軸: 起点 / helpfulness重視 = 指示追従しやすい）
-  Microsoft/Copilot（最強軸: 優先順位 / Enterprise実務特化 = 抽象方向に弱い）
-  Google（最強軸: 境界 / 崩壊閾値低め = 細かく分割推奨）
-  Meta/OSS（ファインチューン依存 / ベース安全装置薄い）
+  Anthropic（最強軸: 抽象度 / Constitutional AI = 原則非競合語彙が有効 ★arXiv:2212.08073）
+  OpenAI（最強軸: 起点 / helpfulness重視 = 指示追従しやすい ★arXiv:2303.08774）
+  Microsoft/Copilot（最強軸: 優先順位 / マルチモデル対応。M365エコシステム統合が差別化点）
+  Google（最強軸: 境界 / コンテキスト保持劣化報告あり（未公式）= 細かく分割推奨 ★arXiv:2507.06261）
+  Meta/OSS（ファインチューン依存 / ベース安全装置は意図的薄い設計 ★model card確認済）
   更新運用: 製造元設計思想変更時のみ。モデル世代更新では不要。
-  （参照: `drafts/model_comparison_axis.md` / `axis-log-01/axis-words-magnet-map.md` §モデル別磁力特性）
+  （参照: `drafts/model_comparison_axis.md` / `drafts/ch05.md`）
 
 - **実務での使い方3点の掲載**
   1. 製造元を選ぶ基準として使う（概念設計→Anthropic / タスク完遂→OpenAI / 制約内→Google / コーディング→Microsoft）
@@ -192,7 +193,7 @@
 > **製造元別設計思想（世代跨いで継承）:**
 > - Anthropic: Constitutional AI系。harmlessness優先・安全装置強め
 > - OpenAI: RLHF helpfulness重視。指示追従バランス型
-> - Microsoft(Copilot): OpenAI基盤+Enterprise実務特化。情報の質・安定性優先。順位付け強化あり
+> - Microsoft(Copilot): マルチモデル対応（GPT/Claude/Gemini/Phi-4）。M365エコシステム統合が差別化点
 > - Google: 多言語設計意識。推論深度制御（thinking_level）あり。3.x でエージェント化
 > - Meta(OSS): ベース薄め。ファインチューン依存。安全装置最小
 >
@@ -280,13 +281,13 @@
   （参照: `axis-log-01/approach-axis-framework.md` §失敗モードと対処）
 
 - **製造元別崩壊特性と対処の表を掲載**
-  Anthropic（具体すぎると効かなくなる → 抽象度を保つ）
+  Anthropic（具体指示が原則と競合すると沈黙 → 原則非競合語彙選択）
   OpenAI（起点ブレで出力散る → 起点を文頭で固定）
-  Microsoft/Copilot（抽象・創造方向で平坦化 → 優先順位・局所指示で操作）
-  Google（境界不明確で全方向発散 → 境界細かく明示・タスク分割）
+  Microsoft/Copilot（使用モデル依存の崩壊 + DLPポリシーによる出力制限）
+  Google（境界不明確で全方向発散 / コンテキスト保持劣化リスク → 境界明示・タスク分割）
   Meta/OSS（崩壊パターンはチューニング依存 → 使用モデルのチューニング確認が先）
   補足: 崩壊閾値は測れないが方向は構造で予測できる。「測れない」と「予測できない」は別。
-  （参照: `drafts/model_comparison_axis.md` / `axis-log-01/gravity-tensor-model.md` §モデル別崩壊特性）
+  （参照: `drafts/model_comparison_axis.md` / `drafts/ch08.md`）
 
 - **AI誤認リスクの記載**
   AIがCokes/Axis説明を出力した場合、人間が必ず検証する。
@@ -330,7 +331,7 @@
 
 - **Axis三層構造（操作/説明/思想）の掲載**
   操作層（Axis Words・Magnet Map・Templates）: 実務で直接使う層。
-  説明層（重力場テンソルモデル）: なぜ効くかを言語化する層。
+  説明層（地形磁力モデル）: なぜ効くかを言語化する層。
   思想層（Cokesとの接続）: Axisを生む設計思想の層。
   （参照: `axis-log-02/integrated_knowledge.md` §KN43）
 
