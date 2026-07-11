@@ -112,21 +112,20 @@ Anthropic / arXiv:2212.08073
 
 | 製造元 | 代表モデル例 | チャンク粒度感度 | 重みづけ思想（合金比率） | 安全装置強度 | 日本語実用性 |
 |--------|------------|---------------|----------------------|------------|------------|
-| Anthropic | Claude Sonnet 4.6 / Opus 4.8 | 高 | Constitutional AI（原則リスト自己批判型）。harmlessness優先 | 強（過剰拒否リスクあり） | 良好 |
-| OpenAI | GPT-5.5 / GPT-5.6系 | 中〜高 | RLHF helpfulness重視。指示追従バランス型 | 中（Rule Based Rewards 2024で調整） | o200k_base tokenizer → 効率改善済み |
-| Microsoft (Copilot) | Copilot（GPT基盤+独自チューニング） | 中（構造化・手順化バイアス強） | OpenAI基盤 + Enterprise実務特化。情報の質・事実性優先に調整。創造性より安定性 | 中〜強（企業コンプライアンス基準） | OpenAI準拠 |
-| Google | Gemini 3.1 Pro / 3.5 Flash系 | 中〜高（エージェント化・推論強化） | ネイティブ統合マルチモーダル。推論深度制御（thinking_level）あり。エージェント自律処理が設計の中心に | 中（Responsible AI方針。2.5→3.xで大きく変わった印象なし） | 多言語対応設計あり。token効率意識。3.x でマルチモーダル統合による処理構造が刷新 |
-| Meta (OSS) | Llama 3.3 / Llama 4系 | モデルによる（ファインチューン依存） | ベース薄め。RLHF最小。下流ファインチューンに委ねる設計 | 低〜中（ベースは薄い。日本語特化版は別） | 日本語ファインチューン版依存 |
+| Anthropic | Claude Sonnet 4.6 / Opus 4.8 | 高 | Constitutional AI（原則リスト自己批判型）。harmlessness優先 ★論文確認済 | 強（過剰拒否リスクあり）★system card公式確認済 | 良好 |
+| OpenAI | GPT-5.5 / GPT-5.6系 | 中〜高 | RLHF helpfulness重視。指示追従バランス型 ★InstructGPT論文確認済 | 公式数値: o1 jailbreak耐性93.4% vs GPT-4o 71.4%（OpenAI technical report） | o200k_base tokenizer → 多言語効率改善済 ★公式確認済 |
+| Microsoft (Copilot) | Copilot（マルチモデル対応: GPT/Claude/Gemini/Phi-4） | 中（構造化・手順化バイアス強） | M365 Graph連携・DLPポリシー統合が差別化点。モデル自体の設計思想は使用モデル依存 | DLPポリシー・感度ラベル強制（データガバナンス）。AIコンテンツ安全は使用モデル依存 | 使用モデル依存 |
+| Google | Gemini 2.5 Pro / 3.x系 | 中〜高（推論深度制御あり） | ネイティブ統合マルチモーダル。thinking_budget（推論トークン制御）★技術レポート確認済 | 中（Responsible AI方針） | 多言語設計あり。MADLAD-400多言語データ学習 ★技術レポート確認済 |
+| Meta (OSS) | Llama 3.3 / Llama 4系 | ファインチューン依存 | ベース安全装置は意図的に薄い設計。Llama Guard等は外部コンポーネント ★model card公式確認済 | 低（ベース）。安全装置は開発者が追加する設計 ★公式確認済 | 日本語は公式サポート外。ファインチューン（例: Swallow）必須 ★model card公式確認済 |
 
-**Copilot差分メモ（GPTとの主な違い）:**
-- 情報の質・事実性・最新性を最優先 → 不確実な情報は断言しない
-- 仕事の文脈理解・タスク完了ステップ提案 → 実務特化推論バイアス
-- 安全性フィルタがGPTより厳密（政治・医療・法律で慎重）
-- 創造性爆発より実用性・安定性・一貫性優先
-- 感情的依存を避ける距離感設計
-- 順位付け（ランキング）の部分強化あり（本人談）
+**Copilotの現状（2026年時点）:**
+- マルチモデル対応: GPT系 / Claude Sonnet 4.6 / Gemini 3.1 Pro / Phi-4 を切り替え可能
+- 「GPT基盤+Enterprise調整」は旧情報。現在は使用モデル選択が可能な設計
+- 差別化点はモデル特性ではなくM365エコシステム統合（Graph/DLP/SharePoint連携）
+- モデル特性はその時点で選択されているモデルに依存する
 
-> **[観察ベース]** テーブルは設計思想の傾向。定量ベンチマークではなく各社公開情報 + 観察知見。モデル世代が変わっても製造元の設計思想は基本継承される前提で記述。
+> **[根拠明示]** ★マーク = 公式ドキュメント・論文で確認済み。それ以外は観察ベース。
+> Anthropic: arXiv:2212.08073 / system card。OpenAI: arXiv:2303.08774 / o1 technical report。Google: Gemini 2.5 technical report（arXiv:2507.06261）。Meta: Llama 3 model card（github.com/meta-llama）。
 
 ---
 
