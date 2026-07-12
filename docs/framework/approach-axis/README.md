@@ -44,21 +44,11 @@ chat-archives（生ログ）
 
 ## incidents/
 
-AIオペレーション中に発生した事故・予期外挙動の事実記録。
-
-| ファイル | 内容 |
-|---------|------|
-| `001_replace-all-path-collision.md` | replace_allによるパス誤置換インシデント（sonnet_work_procedure.md内のknowledgeパス破壊） |
+AIオペレーション事故・予期外挙動の事実記録。→ [incidents/README.md](incidents/README.md)
 
 ## lessons/
 
-incidents・観察から抽出した運用ルール。インシデントなし単独レッスンも可。
-
-| ファイル | 内容 |
-|---------|------|
-| `L001_path-replacement-verification.md` | パス置換作業の検証手順（replace_all禁止・個別Edit・grep確認） |
-| `L002_human-axis-in-structure-design.md` | 構造設計の判断は人間の軸（incidents/lessons分離が実例） |
-| `L003_s-pole-collateral-examples.md` | S極過剰反発の実例2件（子供向け説明・ポジティブ視点） |
+incidents・観察から抽出した運用ルール。→ [lessons/README.md](lessons/README.md)
 
 ## 参照ソース（axis-log-01〜04）
 
