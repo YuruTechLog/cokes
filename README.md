@@ -1,9 +1,9 @@
-# Cokes : Cognitive Key Output Engineering System（出力品質工学）
+# Cokes : Cognitive Key-Output Engineering System（出力品質工学）
 
-Cokesは、楽して、いいモノを作るための知識整理フレームワークです。
+Cokesは、楽して、いいモノを作るために、人間が道具・仕組みを選択して用いる工程を設計・運用するフレームワークです。
 
-品質・コスト・人のバランスを軸に、
-情報を整理し、判断しやすい形にすることを目的としています。
+人・品質・コストの条件を踏まえ、
+必要なKey-Outputを無理なく実現できる工程を設計・運用することを目的としています。
 
 「コークス(Cokes)」は、化石燃料のコークス（cokes）を意識して決めた。
 認知負荷の過剰摂取で燃え尽きる（バーンアウトする）人間が少しでも減るように、という燃料（リソース）への願いを込めている。
@@ -16,7 +16,8 @@ Cokesは、楽して、いいモノを作るための知識整理フレームワ
 
 - 理念 → philosophy.md
 - 用語 → glossary.md
-- ルール → specification.md / core（※整備中：改善歓迎）
+- Cokes版仕様（第1版） → specification.md
+- CQSE期の仕様・問題提起 → specification_cqse.md（履歴として保持）
 - 参考文献 → references.md
 - 生ログなど → docs
 
@@ -32,6 +33,7 @@ cokes/
 ├── README.md
 ├── philosophy.md
 ├── specification.md
+├── specification_cqse.md
 ├── glossary.md
 ├── references.md
 └── docs/
