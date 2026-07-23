@@ -1,6 +1,6 @@
 # Lesson L003: S極過剰反発の実例
 
-- 関連概念: `drafts/terrain-magnetic-model.md` §S極過剰反発（Collateral Damage）
+- 関連概念: `references/terrain-magnetic-model.md` §S極過剰反発（Collateral Damage）
 
 ---
 

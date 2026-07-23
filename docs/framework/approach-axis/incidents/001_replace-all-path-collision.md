@@ -22,7 +22,7 @@ AIは「ファイル名だけ変えたい」という意図ではなく「文字
 
 ## 影響範囲
 
-- `sonnet_work_procedure.md` L59・L78: 存在しないパスへの参照が生成された
+- `archive/sonnet_work_procedure.md`（当時 L59・L78）: 存在しないパスへの参照が生成された
 - ユーザー指摘で発覚 → 手動修正
 
 ## Approach Axisとの接続

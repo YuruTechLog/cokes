@@ -102,7 +102,7 @@ docs/knowledge/axis-log-02/integrated_knowledge.md
 **含む情報（Cokes体系内でのAxisの位置づけ）:**
 - Axis = 意味空間歪曲装置（ワープモデル確定）
 - 重力場テンソルモデル基本構造（再確認・精緻化）
-- Fable/Axis/Cokesの三者関係
+- Cokes/Axisの責任分担
 - Handoff = 分岐点（終点ではない）
 - 外部ツール前Axis語彙必須ルール（運用ルール）
 - AI自身によるフレームワーク誤認のリスク
